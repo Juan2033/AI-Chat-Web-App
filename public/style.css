@@ -1,0 +1,192 @@
+:root{
+  --bg1:#0b1020;
+  --bg2:#121a33;
+  --card:#0f172aee;
+  --stroke:#2b3557;
+  --text:#e7ecff;
+  --muted:#a9b4df;
+  --accent:#7c5cff;
+  --accent2:#2de2e6;
+  --shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 15% 20%, rgba(124,92,255,.25), transparent 60%),
+    radial-gradient(800px 500px at 85% 30%, rgba(45,226,230,.20), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.app{
+  width:min(920px, 100%);
+  height:min(720px, 100vh - 48px);
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  backdrop-filter: blur(10px);
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+  border-bottom:1px solid var(--stroke);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  letter-spacing:.5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#081022;
+}
+.topbar h1{ margin:0; font-size:16px; }
+.sub{ margin:2px 0 0; font-size:12px; color:var(--muted); }
+
+.ghost{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid var(--stroke);
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+}
+.ghost:hover{ color:var(--text); border-color:#3b4a77; }
+
+.messages{
+  flex:1;
+  padding:18px;
+  overflow:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.bubble{
+  max-width: 78%;
+  padding:12px;
+  border-radius:16px;
+  border:1px solid var(--stroke);
+  background: rgba(8, 12, 26, .6);
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
+}
+
+.avatar{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  border:1px solid var(--stroke);
+  color:var(--muted);
+  background: rgba(255,255,255,.03);
+  flex:0 0 auto;
+}
+
+.me{ align-self:flex-end; }
+.me .row{ flex-direction: row-reverse; }
+.me .avatar{
+  background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(45,226,230,.18));
+  color:var(--text);
+}
+.me .bubble{
+  background: linear-gradient(180deg, rgba(124,92,255,.18), rgba(15,23,42,.70));
+  border-color: rgba(124,92,255,.35);
+}
+
+.bot{ align-self:flex-start; }
+.bot .bubble{ background: rgba(10, 16, 36, .55); }
+
+.meta{
+  margin-top:8px;
+  font-size:11px;
+  color:var(--muted);
+  display:flex;
+  gap:8px;
+}
+
+.composer{
+  display:flex;
+  gap:10px;
+  padding:16px 18px;
+  border-top:1px solid var(--stroke);
+  background: rgba(0,0,0,.14);
+}
+.composer input{
+  flex:1;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--stroke);
+  background: rgba(255,255,255,.03);
+  color:var(--text);
+  outline:none;
+}
+.composer input:focus{
+  border-color: rgba(124,92,255,.6);
+  box-shadow: 0 0 0 4px rgba(124,92,255,.15);
+}
+
+.composer button{
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#081022;
+  font-weight:800;
+  cursor:pointer;
+}
+.composer button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+.footer{
+  padding:10px 18px 14px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* Loader dots */
+.dots{ display:inline-flex; gap:4px; align-items:center; }
+.dots span{
+  width:6px; height:6px;
+  border-radius:50%;
+  background: rgba(231,236,255,.75);
+  display:inline-block;
+  animation: blink 1s infinite ease-in-out;
+}
+.dots span:nth-child(2){ animation-delay:.15s; }
+.dots span:nth-child(3){ animation-delay:.30s; }
+@keyframes blink{
+  0%, 80%, 100% { opacity:.25; transform: translateY(0); }
+  40% { opacity:1; transform: translateY(-2px); }
+}

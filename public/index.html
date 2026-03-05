@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat con IA (Gemini)</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="bg"></div>
+
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">AI</div>
+          <div>
+            <h1>Chat con IA</h1>
+            <p>Tu demo full stack (Express + Gemini)</p>
+          </div>
+        </div>
+        <button id="clearBtn" class="btn secondary" type="button">Limpiar</button>
+      </header>
+
+      <section id="messages" class="messages"></section>
+
+      <form id="chatForm" class="composer" autocomplete="off">
+        <input
+          id="input"
+          type="text"
+          placeholder="Escribe tu mensaje…"
+          aria-label="Mensaje"
+        />
+        <button id="sendBtn" class="btn primary" type="submit">Enviar</button>
+      </form>
+
+      <footer class="footer">
+        <span>Tip: Enter envía • No compartas tu API key</span>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
