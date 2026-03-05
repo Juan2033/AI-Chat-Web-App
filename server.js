@@ -13,17 +13,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
 
+// health check
 app.get("/health", (req, res) => {
   res.json({
     status: "ok",
     service: "AI Chat Backend",
     api: "Advice API"
   });
-});
-
-// Healthcheck
-app.get("/health", (_req, res) => {
-  res.json({ ok: true, api: "Advice API" });
 });
 
 app.post("/chat", async (req, res) => {
